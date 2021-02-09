@@ -1,0 +1,42 @@
+@font-face {
+  font-family: bariol-regular;
+  src: url(./Content/Fonts/Bariol-Regular-Webfont/bariol_regular-webfont.ttf);
+}
+
+@font-face {
+  font-family: japokki;
+  src: url(./Content/Fonts/Jaapokkisubtract-Regular.otf);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --text: #e4e1d3;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  color: var( --text);
+  position: relative;
+  margin: 0;
+  font-family: bariol-regular;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+span, p {
+  cursor: default;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

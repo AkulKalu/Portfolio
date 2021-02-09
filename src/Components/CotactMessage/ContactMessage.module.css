@@ -1,0 +1,46 @@
+@keyframes messageC {
+    0% {
+        opacity: 0;
+        
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes message {
+    0% {
+        opacity: 0;
+        
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        
+    }
+}
+.Message{
+    width: 80%;
+    font-size: 1.5vh;
+    text-align: center;
+    padding-top: 2vh;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.ShowMesageC {
+    animation: messageC 2s forwards;
+}
+.ShowMesage {
+    animation: message 6s forwards;
+}
+
+@media screen and (min-width: 1025px) {
+    .Message{
+        width: unset;
+        font-size: 1.7vh;
+    }
+}

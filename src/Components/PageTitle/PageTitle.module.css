@@ -1,0 +1,32 @@
+.Title {
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+    position: relative;
+    z-index: 100;
+    font-family: japokki;
+}
+.Title h1 {
+    font-size: 5vh;
+    display: inline-block;
+    margin-top: 4vh;
+    opacity: 0;
+    letter-spacing: 0.25em;
+    transition: all 1s;
+    
+}
+.Title div {
+    margin-left: -5%;
+    width: 110%;
+    height: 5px;
+    background: var( --text);
+    transform-origin: center;
+    transform: scaleX(0);
+    transition: transform 1s;
+}
+.TextLetter {
+    transition: color 0.2s;
+}
+.TextLetter:hover {
+    color: crimson;
+}

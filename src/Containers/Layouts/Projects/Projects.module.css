@@ -1,0 +1,11 @@
+.Wrap {
+    position: relative;
+    display: inline-block;
+    width: 100vw;
+    height: fit-content;
+    text-align: center;
+}
+
+
+
+

@@ -1,0 +1,47 @@
+footer {
+    height: 18vh;
+    width: 100vw;
+    background: linear-gradient(to top, #232526, #414345);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    clip-path: polygon(50% 8%, 100% 0, 100% 100%, 0 100%, 0 0);
+}
+footer div {
+    height: 100%;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.5vh;
+}
+footer div span span {
+    color: rgb(204, 30, 64);
+}
+footer div span {
+    margin-top: 0.2rem;
+}
+.ReactLogo {
+    height: 2vh;
+    vertical-align: sub;
+}
+.GitHubLogo {
+    height: 4vh;
+    transition: filter 0.5s;
+}
+.GitHubLogo:hover {
+    filter: invert();
+}
+
+@media screen and (min-width: 1025px) {
+    footer {
+        height: 24vh;
+    }
+    footer div span {
+        margin-top: 0.8rem;
+    }
+}
+
+

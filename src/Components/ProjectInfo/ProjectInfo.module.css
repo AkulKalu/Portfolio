@@ -1,0 +1,89 @@
+.Info {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 2s;
+}
+.TextLetter {
+    transition: color 0.2s;
+}
+.TextLetter:hover {
+    color: crimson;
+}
+.Info p {
+    width: 80%;
+    font-size:  2.5vh;
+    text-align: justify;
+}
+.Info h2 {
+    margin-top: -5vh;
+    padding: 2vh 0;
+    font-size: 3vh;
+}
+.Info h3 {
+    padding: 3vh 0;
+    font: initial;
+}
+.Info div {
+    padding-top: 4vh;
+}
+.Link {
+    position: relative;
+    display: inline-block;
+    width: 12vw;
+    margin: 0 10vw;
+    padding: 1vh 1.2vh;
+    font-size: 2vh;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.5s 1s;
+}
+.Link span {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+.Link::before {
+    content:'';
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 5%;
+    left: 0;
+    top: 0;
+    background: rgb(214, 200, 203);
+    transition: all 0.8s;
+}
+
+.Link:hover::before {
+    background: crimson;
+    width: 100%;
+}
+
+@media screen and (min-width: 1025px) {
+    .Link {
+        width: 14vh;
+        margin: 0 4rem;
+        font-size: 1.5vh;
+    }
+    .Info p {
+        width: 65%;
+        font-size:  2.2vh;
+    }   
+}
+@media screen and (max-height: 700px) and (orientation: landscape) {
+    .Info p {
+        width: 70%;
+        font-size:  4vh;
+    }
+    .Link {
+        margin-top: 1.5vh;
+        font-size: 3vh;
+    }
+    .Info h2 {
+        font-size: 5vh;
+    }
+}

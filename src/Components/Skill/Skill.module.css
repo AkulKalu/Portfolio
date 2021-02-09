@@ -1,0 +1,141 @@
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+.Skill {
+        border-radius: 50%;
+        height: 10vh;
+        width: 10Vh;
+        background:  var( --text);
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: bariol;
+        font-size: 1.3vh;
+        font-weight: 700;
+        position: absolute;
+        opacity: 0;
+        transition: background 0.5s, color 0.5s;
+    }
+
+.Skill:hover {
+    background: crimson;
+    color: var( --text);
+}
+.PHP {
+    height: 8vh;
+    width: 8Vh;
+    top: 50% ;
+    right: 15%;   
+   animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.PYTHON {
+    height: 9vh;
+    width: 9Vh;
+    top: 20% ;
+    right: 8%; 
+   animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.JAVASCRIPT {
+    height: 11vh;
+    width: 11Vh;
+    top: 35% ;
+    left: 40%;
+   animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.HTML {
+    top: 30% ;
+    left: 5%;
+   animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.CSS {
+    top: 55% ;
+    left: 10%;
+   animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.REACT {
+    height: 12vh;
+    width: 12Vh;
+    top: 5% ;
+    left: 25%;
+   animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.UX {
+    height: 6vh;
+    width: 6Vh;
+    top: 70% ;
+    left: 35%;
+   animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@media screen and (min-width: 1025px) {
+        .PHP {    
+                top: 50% ;
+                right: 18%; 
+        }
+        .PYTHON {       
+                top: 30% ;
+                right: 13%;
+        }
+        .JAVASCRIPT { 
+                top: 40% ;
+                left: 20%;
+        }
+        .REACT {
+                top: 20% ;
+                left: 15%;
+        }
+        .UX {
+                top: 62% ;
+                left: 20%;
+        }
+            
+}
+@media screen and (max-height: 700px) and (orientation: landscape) {
+        .Skill {
+              font-size: 2vh;
+            }
+            .PHP {
+                height: 10vh;
+                width: 10Vh;  
+            }
+            .PYTHON {
+                height: 11vh;
+                width: 11Vh;
+            }
+            
+            .JAVASCRIPT {
+                height: 13vh;
+                width: 13Vh;
+            }
+            
+            .HTML {
+                height: 12vh;
+                width: 12Vh;
+            }
+            .CSS {
+                height: 12vh;
+                width: 12Vh;
+            }
+            
+            .REACT {
+                height: 14vh;
+                width: 14Vh;
+            }
+            .UX {
+                height: 8vh;
+                width: 8Vh;
+            }
+}

@@ -1,0 +1,30 @@
+.Wrap {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.Ornament {
+    clip-path: polygon(50% 8%, 100% 0, 100% 100%, 0 100%, 0 0);
+    background:var( --text);
+    height: 17vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all 1s;
+}
+
+@media screen and (min-width: 1025px) {
+    .Ornament {
+        height: 23vh;
+    }
+}
+@media screen and (max-height: 700px) and (orientation: landscape) {
+    .Wrap {
+        height: 130vh;
+       
+    }
+  }

@@ -1,0 +1,70 @@
+@keyframes focus-in-contract {
+    0% {
+      letter-spacing: 0.8em;
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+
+nav {
+    margin: 10vh 0vw;
+    width: 100%; 
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+.NavLink {
+    position: relative;
+    font-size: 8vw;
+    margin: 2vh 8vw;
+    cursor: pointer;
+    width: max-content;
+    text-align: center;  
+    transition: letter-spacing 1s,color 1s ; 
+}
+.NavLink span {
+    color: crimson;
+}
+
+.HoverEffect:hover {
+    letter-spacing: 0.5rem;
+    color: #dc143c;
+}
+.NavLink:nth-of-type(1) {
+    animation: focus-in-contract 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) backwards;
+}
+.NavLink:nth-of-type(2) {
+    animation: focus-in-contract 2s 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) backwards;
+}
+.NavLink:nth-of-type(3) {
+    animation: focus-in-contract 2s 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) backwards;
+}
+@media screen and (min-width: 1025px) {
+    nav {
+        width: fit-content;
+        margin: 8vh 2vw;
+        flex-direction: row;
+ 
+    }
+    .NavLink {
+        font-size: 6.5vh;
+        margin: 0 2rem;
+    }
+}
+@media screen and (max-height: 769px) and (orientation: landscape) {
+    nav {
+        width: fit-content;
+        margin: 6vh 2vh;
+        flex-direction: row;
+    }
+    .NavLink {
+        font-size: 6.5vh;
+        margin: 0 1rem;
+    }
+}
