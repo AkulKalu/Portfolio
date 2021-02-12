@@ -55,12 +55,4 @@
         
     }
 }
-@media screen and (max-height: 700px) and (orientation: landscape) {
-    .Info {
-        font-size: 4vh;
-        width: 80%;
-    }
-    .Info p a {
-        font-size: 4.1vh;
-    }
-  }
+

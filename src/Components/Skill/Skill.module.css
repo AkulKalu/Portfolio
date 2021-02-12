@@ -45,6 +45,13 @@
     right: 8%; 
    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+.LARAVEL {
+    height: 9vh;
+    width: 9Vh;
+    top: 45% ;
+    right: 8%; 
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
 
 .JAVASCRIPT {
     height: 11vh;
@@ -59,10 +66,10 @@
     left: 5%;
    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-.CSS {
+.SCSS-CSS {
     top: 55% ;
     left: 10%;
-   animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .REACT {
@@ -102,40 +109,4 @@
                 left: 20%;
         }
             
-}
-@media screen and (max-height: 700px) and (orientation: landscape) {
-        .Skill {
-              font-size: 2vh;
-            }
-            .PHP {
-                height: 10vh;
-                width: 10Vh;  
-            }
-            .PYTHON {
-                height: 11vh;
-                width: 11Vh;
-            }
-            
-            .JAVASCRIPT {
-                height: 13vh;
-                width: 13Vh;
-            }
-            
-            .HTML {
-                height: 12vh;
-                width: 12Vh;
-            }
-            .CSS {
-                height: 12vh;
-                width: 12Vh;
-            }
-            
-            .REACT {
-                height: 14vh;
-                width: 14Vh;
-            }
-            .UX {
-                height: 8vh;
-                width: 8Vh;
-            }
 }

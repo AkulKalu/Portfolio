@@ -143,32 +143,4 @@ input[type="button"] {
         font-size: 1.3vh;
     }
 }
-@media screen and (max-height: 700px) and (orientation: landscape) {
-    input[type="text"], input[type="email"] {
-        width: 60vh;
-        height: 5vh;
-        font-size: 2.7vh;
-    }
-    ::placeholder {
-        font-size: 2.6vh;
-    }
-    .InputState {
-        font-size: 2.2vh;
-    }
-    textarea {
-        font-size: 2.7vh;
-        height: 30vh;
-        width: 60vh;
-    }
-    input[type="button"] {
-        font-size: 2.2vh;
-    }
-    .CheckBoxWrap span {
-        font-size: 2.1vh;
-    }
-    .CheckBox {
-        height: 3vh;
-        width: 3vh;
-       
-    }
-}
+

@@ -94,7 +94,7 @@ export const paramsWelcome = {
                 "speed":3
             },
             "repulse":{
-                "distance":200,
+                "distance":100,
                 "duration":0.2
             },
             "push":{

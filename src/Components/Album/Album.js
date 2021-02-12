@@ -11,7 +11,7 @@ import {projectDescription} from '../../Content/Text/text';
 const Album = props => {
     const [state, setState] = useState({scrolledTo: false})
     useEffect(()=> {
-        animateOnScroll(props.project, setState, window.innerHeight * 1.2);
+        animateOnScroll(props.project, setState, window.innerHeight * 1.35);
 
         const pics = document.querySelectorAll(`#${props.project} [data-pic]`);
         let prev = 0;

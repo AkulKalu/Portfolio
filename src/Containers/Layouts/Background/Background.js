@@ -7,32 +7,48 @@ import {paramsWelcome} from '../../../Toolkit/ParticleParamaters';
 
 
 const Background = props => {
-    let [color, setColor] = useState('#49d2fc')
-    let pColor = {
-        1 : '#e3a812',
-        2: '#20f5e0',
-        3: '#7eb2c2',
-        4: '#49d2fc',
-    }
-    let col = useRef('#fffff');
+    let [color, setColor] = useState('#ffffff');
+ 
+    let col = useRef('#ffffff');
     useEffect(() => {
-        let project = document.getElementById('P1W')
+        let projects = {
+            P1W :{ color: '#f6ff00'},
+            P2W: {color:'#0af548'},
+            P3W: {color:'#7eb2c2'},
+            P4W: {color:'#0ac2f5'},
+        }
+        let projectIds = Object.keys(projects)
+        projectIds.forEach( id => projects[id].window = document.getElementById(id))
+       
         let eventObj = window.addEventListener('scroll', () => {
            
-            if((project.getBoundingClientRect().top <= 0 || project.getBoundingClientRect().bottom >= 0) && col.current !== pColor[1] ) {
-                col.current = pColor[1]
+            if((projects.P1W.window.getBoundingClientRect().top > 0 || projects.P4W.window.getBoundingClientRect().bottom < 0) && col.current !== '#ffffff') {
+                col.current = '#ffffff';
                 setColor(null);
-                setColor('#e3a812')
-                
-               }
-           
+                setColor('#ffffff')
+                return;
+            }
+            projectIds.forEach((id) => {
+                let projectWindow = projects[id].window;
+                let particleColor = projects[id].color
+                let inView = projectWindow.getBoundingClientRect().top <= 0 && projectWindow.getBoundingClientRect().bottom >= window.innerHeight;
+              
+                if(inView && col.current !== particleColor) {
+                    col.current = particleColor;
+                    setColor(null);  
+                    setColor(particleColor);
+                    
+                    
+                }
+            })
         }) 
        
     }, [])
    
     paramsWelcome.particles.color.value = color;
+    paramsWelcome.particles.line_linked.color = color
     return    <div  className={classes.Wrap}>
-    {color && <Particles width="100vw" height="100vh" params={paramsWelcome} />}
+    {color && <Particles className={classes.EnterAnimation} width="100vw" height="100vh" params={paramsWelcome} />}
 </div>
 }
 

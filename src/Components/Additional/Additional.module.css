@@ -35,16 +35,3 @@
     }
 
 }
-@media screen and (max-height: 700px) and (orientation: landscape) {
-    .Wrap {
-        right: 2vh;
-    }
-    .Wrap a{
-        font-size: 5vh;
-        margin-right: 1vh;
-    }
-    .Wrap img {
-        height: 6vh;
-        padding-top: 0.5vh;
-    }
-}

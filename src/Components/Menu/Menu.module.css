@@ -28,8 +28,12 @@ nav {
     text-align: center;  
     transition: letter-spacing 1s,color 1s ; 
 }
+.NavLink:hover span {
+    color:cornsilk ;
+}
 .NavLink span {
     color: crimson;
+    transition: color 1s;
 }
 
 .HoverEffect:hover {
@@ -57,14 +61,4 @@ nav {
         margin: 0 2rem;
     }
 }
-@media screen and (max-height: 769px) and (orientation: landscape) {
-    nav {
-        width: fit-content;
-        margin: 6vh 2vh;
-        flex-direction: row;
-    }
-    .NavLink {
-        font-size: 6.5vh;
-        margin: 0 1rem;
-    }
-}
+
