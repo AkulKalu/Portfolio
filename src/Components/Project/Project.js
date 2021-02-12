@@ -11,8 +11,8 @@ const Project = props => {
     const reverse = (props.reverse && !mobile) ? { flexFlow: 'row-reverse'} : null;
     return(
         <div id={props.id + 'W'} style={reverse} className={classes.Wrap}>
-            <ProjectInfo project={props.project} />
-            <Album project={props.project}/>
+            <ProjectInfo {...props} />
+            <Album {...props}/>
         </div>
        
     )

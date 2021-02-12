@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import Background from '../Layouts/Background/Background';
 import Welcome from '../Layouts/Welcome/Welcome';
 import About from '../Layouts/About/About';
 import Projects from '../Layouts/Projects/Projects';
@@ -11,6 +12,7 @@ class Page extends Component {
     render() {
         return (
             <Fragment>
+                <Background />
                 <Welcome />
                 <Dock />
                 <Projects />

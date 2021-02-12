@@ -1,0 +1,9 @@
+.Wrap {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #232526, #414345);
+}

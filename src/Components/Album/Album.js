@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import classes from './Album.module.css';
-import {animateOnScroll} from '../../Toolkit/functions'
+import {animateOnScroll} from '../../Toolkit/functions';
+
+
+import {projectDescription} from '../../Content/Text/text';
 
 
 
@@ -26,20 +29,13 @@ const Album = props => {
        
     }, [state.scrolledTo]) 
 
-    const images = {
-        weather: [...Array(4).keys()],
-        sudoku: [...Array(4).keys()],
-        sorter: [...Array(3).keys()],
-        qrcodes: [...Array(3).keys()],
-        link: num => `../../Content/Images/${props.project.toLowerCase()}-${num + 1}.jpg`
-    }
-
-  
-    
-    const photos = images[props.project.toLowerCase()].map( i => {
+   
+    let imgLinks = projectDescription[props.project].images;
+ 
+    const photos = imgLinks.map(( link, i )=> {
         const show = i === 0 ? {opacity: '1'} : null;
-        return <img data-pic style={show} className={classes.Pic} key={`${props.project}${i}`}  alt={`${props.project}${i}`} 
-        src={require(`../../Content/Images/${props.project.toLowerCase()}-${i+1}.jpg`)}></img>
+      
+        return  <img key={`${props.project}${i}`} src={ link} data-pic style={show} className={classes.Pic} alt="asd"/>
     } )
     const showAlbum = state.scrolledTo ? {
         opacity: '1'
@@ -47,6 +43,7 @@ const Album = props => {
     return(
         <div style={showAlbum} id={props.project} className={classes.AlbumWrap}>
             {photos}
+            
         </div>
     )
 }
