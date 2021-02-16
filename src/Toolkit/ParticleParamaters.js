@@ -53,8 +53,8 @@ export const paramsWelcome = {
         },
         "move":{
             "enable":true,
-            "speed":1,
-            "direction":"bottom",
+            "speed":0.5,
+            "direction":"left",
             "random":false,
             "straight":false,
             "out_mode":"out",
