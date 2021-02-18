@@ -3,8 +3,8 @@ export const projectDescription = {
         title:'Simple QrCodes',
         tech: 'REACT / JS  |  LARAVEL / PHP  |  HTML / SCSS / CSS',
         info:  'This is a concept web service. It alows users to setup checkout pages for their merchandise and generate qrcodes to them. It implements paypal and stripe payment service, and alows users to manage their items, track transactions, manage shippments and more.',
-        gitHubLink: 'https://github.com/AkulKalu/The-Weather-app',
-        siteLink: 'http://lukasweatherapp.infinityfreeapp.com',
+        gitHubLink: 'https://github.com/AkulKalu/QrcodeFull',
+        siteLink: 'https://simple-qr-codes.herokuapp.com/',
         images: ['https://res.cloudinary.com/df6ytp5bl/image/upload/v1613146242/portfolio/qrcodes-1_luweio.jpg', 'https://res.cloudinary.com/df6ytp5bl/image/upload/v1613146244/portfolio/qrcodes-3_nrinyf.jpg', 'https://res.cloudinary.com/df6ytp5bl/image/upload/v1613146243/portfolio/qrcodes-2_iimnes.jpg']
     },
     weather:{
@@ -33,7 +33,7 @@ export const projectDescription = {
         info: "Here you can explore the workings of the most commonly used sorting algorithms",
         gitHubLink: 'https://github.com/AkulKalu/Sorting-Visualiser',
         siteLink: 'http://theweatherapp.infinityfreeapp.com/Sorting%20Visualiser/index.html',
-        images: ['https://res.cloudinary.com/df6ytp5bl/image/upload/v1613146242/portfolio/sorter-1_u0yiie.jpg', 'https://icedrive.net/0/f59fSAYW45']
+        images: ['https://res.cloudinary.com/df6ytp5bl/image/upload/v1613146242/portfolio/sorter-1_u0yiie.jpg', 'https://res.cloudinary.com/df6ytp5bl/image/upload/v1613146246/portfolio/sorter-2_wkhksh.jpg','https://res.cloudinary.com/df6ytp5bl/image/upload/v1613146242/portfolio/sorter-3_f6sk8j.jpg']
     }
 
 }

@@ -1,6 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
 import classes from './Background.module.css';
-import {animateOnScroll} from '../../../Toolkit/functions';
 import Particles from 'react-particles-js';
 import {paramsWelcome} from '../../../Toolkit/ParticleParamaters';
 
@@ -8,51 +7,39 @@ import {paramsWelcome} from '../../../Toolkit/ParticleParamaters';
 
 const Background = props => {
     let [color, setColor] = useState('#ffffff');
+    let [fadeOut, setFadeOut] = useState({});
  
-    let col = useRef('#ffffff');
-    let projInView = useRef(null);
+ 
+    let col = useRef(0);
+    
     useEffect(() => {
-        let projects = {
-            P1W :{ color: '#f6ff00'},
-            P2W: {color:'#0af548'},
-            P3W: {color:'#7eb2c2'},
-            P4W: {color:'#0ac2f5'},
-        }
-        let projectIds = Object.keys(projects)
-        projectIds.forEach( id => projects[id].window = document.getElementById(id))
-       
-        let eventObj = window.addEventListener('scroll', () => {
-            
-            if((projects.P1W.window.getBoundingClientRect().top > 300 || projects.P4W.window.getBoundingClientRect().bottom < 0) && projInView.current) {
-                projInView.current =null;
-                setColor(null);
-                setColor('#ffffff')
-                return;
-            }
-            projectIds.forEach((id) => {
-                let projectWindow = projects[id].window;
-                let particleColor = projects[id].color;
-               
-              
-               
-                let  inView = projectWindow.getBoundingClientRect().top <= 0  && Math.abs(projectWindow.getBoundingClientRect().top)  <= window.innerHeight;
+        let projects = ['#f6ff00', '#0af548', '#7eb2c2', '#0ac2f5', '#ffffff']
+        if(color) {
+        
+            setTimeout(() => {
                 
-         
-                if(inView && projInView.current !== id) {
-                    projInView.current = id;
-                    setColor(null);  
-                    setColor(particleColor);  
-                }
-            })
-           
-        }) 
+                setFadeOut({
+                    className: classes.ExitAnimation,
+                    onAnimationEnd : () => {
+                        console.log('s');
+                        setFadeOut({});
+                        setColor(null);
+                        setTimeout(() =>  setColor(projects[col.current]), 0)
+                       
+                        col.current = col.current < 4 ? col.current +1 : 0
+                    }
+                })
+               
+            }, 15000)
+        }
        
-    }, [])
-  
+       
+    }, [color])
+ 
     paramsWelcome.particles.color.value = color;
     paramsWelcome.particles.line_linked.color = color
-    return    <div  className={classes.Wrap}>
-    {color && <Particles className={classes.EnterAnimation} width="100vw" height="100vh" params={paramsWelcome} />}
+    return    <div className={classes.Wrap}>
+    {color && <div {...fadeOut} ><Particles className={classes.EnterAnimation} width="100vw" height="100vh" params={paramsWelcome} /></div>}
 </div>
 }
 

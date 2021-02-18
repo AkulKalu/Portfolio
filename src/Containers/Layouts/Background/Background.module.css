@@ -11,6 +11,9 @@
 .EnterAnimation {
     animation: fade-in 1.5s ease-in-out;
 }
+.ExitAnimation {
+    animation: fade-out 1.5s ease-out;
+}
 
 @keyframes fade-in {
     from {
@@ -18,5 +21,13 @@
     }
     to {
         opacity: 1;
+    }
+}
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
     }
 }

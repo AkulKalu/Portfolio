@@ -9,15 +9,10 @@
 @media screen and (min-width: 1025px) {
     .Wrap {
         flex-direction: row;
-        height: 100vh;
+        height: 120vh;
     }
 }
-@media screen and (max-height: 769px) and (orientation: landscape) {
-    .Wrap {
-        height: 110vw;
-        max-height: 1100px;
-    }
-}
+
 
 
 
