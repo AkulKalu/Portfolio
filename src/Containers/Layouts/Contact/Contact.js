@@ -17,7 +17,7 @@ class Contact extends Component {
             if(!this.state.orn && orn.y < window.innerHeight - (window.innerHeight / 10) ) {
                 this.setState({
                     orn: {
-                        transform: 'translateY(-2vh)'
+                        transform: 'translateY(-1.2vh)'
                     }
                 })
                 window.removeEventListener('scroll', pullFooter)

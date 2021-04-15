@@ -5,26 +5,56 @@
     align-items: center;
     position: relative;
     opacity: 0;
-    transition: opacity 2s;
+    perspective: 800px;
 }
 
 .Pic {
-    height: 40%;
-    max-width: 90%;
+    height: 35%;
+    max-width: 80%;
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 0;
     right: 0;
     margin:0 auto;
     opacity: 0;
     transition: opacity 3s;
-    border: 1px solid rgb(161, 161, 161);
+    border: 2px solid var(--white);
+    box-shadow: 0px 0px 10px var(--gray);
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    outline: 1px solid transparent;
+}
+
+.AnimEnter {
+    animation: slide-in-bottom 0.4s cubic-bezier(.18,.19,.32,.99) both;
+}
+@keyframes slide-in-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0)
+    }
 }
 
 @media screen and (min-width: 1025px) and (max-width: 1400px) {
     .Pic {
         height: 35%;
         top: 32.5%;
+    }
+}
+@media screen and (min-width: 1025px) {
+    .RotateLeft {
+        transform: rotateY(-15deg) translateX(-10%);
+    }
+    .RotateRight {
+        transform: rotateY(15deg) translateX(10%);
     }
 }
 @media screen and (max-height: 769px) and (orientation: landscape) {

@@ -1,15 +1,17 @@
 
 .Wrap {
     width: fit-content;
-    text-align: center;
+     height: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     right: 4vw;
-    top: 0.5vh;
+    top: 0;
 }
 
 .Dock img {
-    height: 2.6vh
+    height: 3vh;
 }
 .Dock {
     font-size: 2vh;

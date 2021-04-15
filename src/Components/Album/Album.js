@@ -11,7 +11,7 @@ import {projectDescription} from '../../Content/Text/text';
 const Album = props => {
     const [state, setState] = useState({scrolledTo: false})
     useEffect(()=> {
-        animateOnScroll(props.project, setState, window.innerHeight * 1.35);
+        animateOnScroll(props.project, setState, window.innerHeight * 1.17);
 
         const pics = document.querySelectorAll(`#${props.project} [data-pic]`);
         let prev = 0;
@@ -35,15 +35,18 @@ const Album = props => {
     const photos = imgLinks.map(( link, i )=> {
         const show = i === 0 ? {opacity: '1'} : null;
       
-        return  <img key={`${props.project}${i}`} src={ link} data-pic style={show} className={classes.Pic} alt="asd"/>
+        return  <img 
+                    key={`${props.project}${i}`} 
+                    src={ link} data-pic style={show} 
+                    className={`${classes.Pic} ${props.reverse ? classes.RotateRight : classes.RotateLeft}`} 
+                    alt=""/>
     } )
-    const showAlbum = state.scrolledTo ? {
-        opacity: '1'
-    } : null;
+    // const showAlbum = state.scrolledTo ? {
+    //     opacity: '1'
+    // } : null;
     return(
-        <div style={showAlbum} id={props.project} className={classes.AlbumWrap}>
+        <div id={props.project} className={`${classes.AlbumWrap} ${state.scrolledTo && classes.AnimEnter}`}>
             {photos}
-            
         </div>
     )
 }

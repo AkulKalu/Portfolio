@@ -20,7 +20,6 @@ class Welcome extends Component {
     render() {
         return (
             <Fragment>
-             
                 <div id="H" className={classes.Welcome}> 
                     <Menu allowHover={this.state.showMessage} timeMessage={this.navAnimEndHandler} />
                     {this.state.showMessage ? <Message /> : null}

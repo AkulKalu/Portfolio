@@ -37,9 +37,11 @@
     margin: 0 10vw;
     padding: 1vh 1.2vh;
     font-size: 2vh;
-    transform-origin: left;
-    transform: scaleX(0);
-    transition: transform 0.5s 1s;
+    transition: color 0.8s 0.2s ;
+    
+}
+.Link:hover {
+    color: white;
 }
 .Link span {
     position: relative;
@@ -54,12 +56,12 @@
     width: 5%;
     left: 0;
     top: 0;
-    background: rgb(214, 200, 203);
-    transition: all 0.8s;
+    background: crimson;
+    transition: width 0.8s, background 0.8s;
 }
 
 .Link:hover::before {
-    background: crimson;
+    background: var(--black);
     width: 100%;
 }
 

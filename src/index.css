@@ -14,7 +14,10 @@
   padding: 0;
 }
 :root {
-  --text: #e4e1d3;
+  --text: #536069;
+  --gray : #6A7C88;
+  --white : #F3F0EB;
+  --black :  #0D1218;
 }
 html {
   scroll-behavior: smooth;

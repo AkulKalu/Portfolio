@@ -13,7 +13,7 @@ const ProjectInfo = props => {
         scrolledTo: false
     })
     useEffect(() => {
-        animateOnScroll(props.project +'Inf', setState, window.innerHeight *1.35)
+        animateOnScroll(props.project +'Inf', setState, window.innerHeight *1.1)
     },[]);
   
     const showText = state.scrolledTo ? {

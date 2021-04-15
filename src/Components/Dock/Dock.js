@@ -100,9 +100,9 @@ const Dock = props => {
                     <span onClick={()=> onClickScroll('P1W')} style={setActive('P1W')} className={classes.DockBtn}>PROJECT 1</span>
                     <span onClick={()=> onClickScroll('P2W')} style={setActive('P2W')} className={classes.DockBtn}>PROJECT 2</span>
                     <span onClick={()=> onClickScroll('P3W')} style={setActive('P3W')} className={classes.DockBtn}>PROJECT 3</span>
+                    <span onClick={()=> onClickScroll('P4W')} style={setActive('P3W')} className={classes.DockBtn}>PROJECT 4</span>
                     <span onClick={()=> onClickScroll('A')} style={setActive('A')} className={classes.DockBtn}>ABOUT ME</span>
                     <span onClick={()=> onClickScroll('C')} style={setActive('C')} className={classes.DockBtn}>CONTACT</span>
-                    {mobile ? null : <Additional dock />}
                     {mobile ? null : scrollIndcator}
                 </div>
             </div>

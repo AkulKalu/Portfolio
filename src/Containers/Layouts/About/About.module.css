@@ -1,22 +1,15 @@
 .Wrap {
-    display: inline-block;
     height: fit-content;
     width: 100vw;
-    position: relative;
     box-sizing: border-box;
     padding-top: 15vh;
 }
-
 .Info {
-    flex-basis: 50%;
-    position: relative;
-    z-index: 100;
     margin: auto;
     margin-top: 5%;
     font-size: 2.5vh;
     width: 80%;
     text-align: justify;
-    
 }
 .Info p {
     opacity: 0;
@@ -26,15 +19,12 @@
     font-size: 2.6vh;
     color: crimson;
 }
-.TechSkills {
-    margin-top: 10%;
-    height: 60vh;
-    width: 100vw;
-}
+
 .SkillsContainer {
-    position: relative;
-    height: 100%;
-    width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-top: 8%;
 }
 @media screen and (min-width: 1025px) {
     .Wrap {
@@ -47,12 +37,6 @@
     .Info p a {
         font-size: 2.1vh;
     }
-    .TechSkills {
-        position: absolute;
-        height: 100%;
-        top: 0;
-        left: 0;
-        
-    }
+    
 }
 

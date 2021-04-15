@@ -1,11 +1,11 @@
 export const projectDescription = {
     qrcodes : {
         title:'Simple QrCodes',
-        tech: 'REACT / JS  |  LARAVEL / PHP  |  HTML / SCSS / CSS',
+        tech: 'REACT / JS  |  LARAVEL / PHP  |  HTML / SCSS',
         info:  'This is a concept web service. It alows users to setup checkout pages for their merchandise and generate qrcodes to them. It implements paypal and stripe payment service, and alows users to manage their items, track transactions, manage shippments and more.',
         gitHubLink: 'https://github.com/AkulKalu/QrcodeFull',
         siteLink: 'https://simple-qr-codes.herokuapp.com/',
-        images: ['https://res.cloudinary.com/df6ytp5bl/image/upload/v1613146242/portfolio/qrcodes-1_luweio.jpg', 'https://res.cloudinary.com/df6ytp5bl/image/upload/v1613146244/portfolio/qrcodes-3_nrinyf.jpg', 'https://res.cloudinary.com/df6ytp5bl/image/upload/v1613146243/portfolio/qrcodes-2_iimnes.jpg']
+        images: ['https://res.cloudinary.com/df6ytp5bl/image/upload/v1614708222/portfolio/qrcode-1_jqyyyc.jpg', 'https://res.cloudinary.com/df6ytp5bl/image/upload/v1614707472/portfolio/qrcodes-3_jfv4mv.jpg', 'https://res.cloudinary.com/df6ytp5bl/image/upload/v1614707473/portfolio/qrcode-6_pghj7v.jpg']
     },
     weather:{
         title:'The Weather App',

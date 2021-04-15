@@ -27,7 +27,7 @@ class About extends Component {
                 transitionDelay: `${delay}s`
             }: null
         }
-        const skills = ['PHP', 'LARAVEL' ,'PYTHON', 'JAVASCRIPT', 'REACT', 'HTML', 'SCSS-CSS', 'UX'].map( (skill, i) => {
+        const skills = ['REACT', 'JAVASCRIPT' ,'TYPESCRIPT','HTML', 'SCSS-CSS', 'UX', 'PYTHON', 'LARAVEL', 'PHP'].map( (skill, i) => {
             return <Skill key={`skill${i}`} show={this.state.scrolledTo} name={skill} />
         })
         return (

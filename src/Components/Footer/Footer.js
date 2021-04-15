@@ -12,7 +12,6 @@ const Footer = props => {
                 </a>
                 <span>Luka Krunić<span> ©2020</span></span>
                 <span>Powerd by<img className={classes.ReactLogo} alt="REACT" src={require('../../Content/Images/REACT.svg')}></img></span>
-              
             </div>
         </footer>
     )
