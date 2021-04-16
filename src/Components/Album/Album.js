@@ -1,22 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import classes from './Album.module.css';
-import {animateOnScroll} from '../../Toolkit/functions';
-
-
 import {projectDescription} from '../../Content/Text/text';
 
 
 
 
 const Album = props => {
-    const [state, setState] = useState({scrolledTo: false})
     useEffect(()=> {
-        animateOnScroll(props.project, setState, window.innerHeight * 1.17);
 
         const pics = document.querySelectorAll(`#${props.project} [data-pic]`);
         let prev = 0;
         let curr = 1;
-        if(state.scrolledTo) {
+        if(props.inView) {
             const switchPic = () => {
                 pics[prev].style.opacity = '0';
                 pics[curr].style.opacity = '1';
@@ -27,7 +22,7 @@ const Album = props => {
             setTimeout( switchPic, 3000);
         }
        
-    }, [state.scrolledTo]) 
+    }, [props.inView]) 
 
    
     let imgLinks = projectDescription[props.project].images;
@@ -41,11 +36,9 @@ const Album = props => {
                     className={`${classes.Pic} ${props.reverse ? classes.RotateRight : classes.RotateLeft}`} 
                     alt=""/>
     } )
-    // const showAlbum = state.scrolledTo ? {
-    //     opacity: '1'
-    // } : null;
+   
     return(
-        <div id={props.project} className={`${classes.AlbumWrap} ${state.scrolledTo && classes.AnimEnter}`}>
+        <div id={props.project} className={`${classes.AlbumWrap} ${props.inView && classes.AnimEnter}`}>
             {photos}
         </div>
     )

@@ -9,10 +9,11 @@ class About extends Component {
     state = {
         scrolledTo: false
     }
+
     componentDidMount() {
         const inViewHandler = () => {
             const el = document.getElementById('aboutMeInfo');
-            if(el.getBoundingClientRect().bottom < window.innerHeight) {
+            if(el.getBoundingClientRect().bottom < window.innerHeight*0.7) {
                 this.setState({scrolledTo: true});
                 window.removeEventListener('scroll', inViewHandler);
             }
@@ -27,9 +28,11 @@ class About extends Component {
                 transitionDelay: `${delay}s`
             }: null
         }
-        const skills = ['REACT', 'JAVASCRIPT' ,'TYPESCRIPT','HTML', 'SCSS-CSS', 'UX', 'PYTHON', 'LARAVEL', 'PHP'].map( (skill, i) => {
-            return <Skill key={`skill${i}`} show={this.state.scrolledTo} name={skill} />
-        })
+        const renderSkillList = skillList => {
+            return skillList.map( skill => {
+                return <Skill key={`${skill}`} show={this.state.scrolledTo} name={skill} />})
+        }
+        const skillClasses = [classes.SkillsContainer, this.state.scrolledTo && classes.Show].join(' ');
         return (
             <div id="A" className={classes.Wrap}>
                 <PageTitle text="ABOUT ME" />
@@ -44,10 +47,25 @@ class About extends Component {
                     <p style={showParagraf(1)}>For more general information about me, take a look at my <a href={require('../../../Content/cv.pdf')}> CV</a>.</p>
                 </div>
                 <div className={classes.TechSkills}>
-                    <div className={classes.SkillsContainer}>
-                        {skills}
+                    <div className={skillClasses}>
+                        {renderSkillList(['HTML', 'SCSS-CSS', 'UX'])}
                     </div>
-                </div>   
+                    <div className={skillClasses}>
+                        {renderSkillList(['REACT', 'JAVASCRIPT' ,'TYPESCRIPT'])}
+                    </div>
+                    <div className={skillClasses}>
+                        {renderSkillList(['LARAVEL', 'PHP'])}
+                    </div>
+                </div> 
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                        <filter id="goo">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                            <feBlend in="SourceGraphic" in2="goo" />
+                        </filter>
+                    </defs>
+                </svg>
                
             </div>      
         );

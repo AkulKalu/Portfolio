@@ -3,6 +3,7 @@
     width: 100vw;
     box-sizing: border-box;
     padding-top: 15vh;
+    padding-bottom: 10vh;
 }
 .Info {
     margin: auto;
@@ -19,16 +20,43 @@
     font-size: 2.6vh;
     color: crimson;
 }
-
-.SkillsContainer {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   padding-top: 8%;
+.TechSkills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8%;
 }
+.SkillsContainer {
+   position: relative;
+   margin: 0 10%;
+   filter: url('#goo');
+   height: 10vh;
+   width: 10Vh;
+   transform: scale(0);
+   
+}
+.SkillsContainer:nth-of-type(2) {
+    margin-top: 10%;
+}
+.Show {
+    animation: scale 1s forwards;
+}
+
+@keyframes scale {
+    from {
+            transform: scale(0);
+    }
+    to {
+           transform: scale(1);
+    }
+}
+
 @media screen and (min-width: 1025px) {
     .Wrap {
         height: 120vh;
+    }
+    .SkillsContainer:nth-of-type(2) {
+        margin-top: -10%;
     }
     .Info {
         font-size: 2vh;

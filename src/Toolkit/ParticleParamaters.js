@@ -25,12 +25,12 @@ export const paramsWelcome = {
             }
         },
         "opacity":{
-            "value":0.8,
+            "value": 1,
             "random":false,
             "anim":{
                 "enable":true,
-                "speed":2,
-                "opacity_min":0.2,
+                "speed":0.8,
+                "opacity_min":0.1,
                 "sync":false
             }
         },
@@ -55,8 +55,8 @@ export const paramsWelcome = {
             "enable":true,
             "speed":5,
             "direction":"bottom-left",
-            "random":false,
-            "straight":true,
+            "random":true,
+            "straight":false,
             "out_mode":"out",
             "bounce":false,
             "attract":{

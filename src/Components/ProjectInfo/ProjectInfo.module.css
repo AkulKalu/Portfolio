@@ -7,6 +7,7 @@
     opacity: 0;
     transition: opacity 2s;
 }
+
 .TextLetter {
     transition: color 0.2s;
 }
@@ -14,7 +15,7 @@
     color: crimson;
 }
 .Info p {
-    width: 80%;
+    margin: auto;
     font-size:  2.5vh;
     text-align: justify;
 }
@@ -70,6 +71,13 @@
         width: 14vh;
         margin: 0 4rem;
         font-size: 1.5vh;
+    }
+    .Text {
+        background:  #f3f0ebbb;
+        width: 80%;
+        box-shadow:  0 0 4px var(--text);
+        border-radius: 10px;
+        
     }
     .Info p {
         width: 65%;

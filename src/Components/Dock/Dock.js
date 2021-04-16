@@ -24,6 +24,7 @@ const Dock = props => {
             P1W:  document.getElementById('P1W').getBoundingClientRect(),
             P2W:  document.getElementById('P2W').getBoundingClientRect(),
             P3W:  document.getElementById('P3W').getBoundingClientRect(),
+            P4W:  document.getElementById('P4W').getBoundingClientRect(),
             A:  document.getElementById('A').getBoundingClientRect(),
             C:  document.getElementById('C').getBoundingClientRect(),
             H:  document.getElementById('H').getBoundingClientRect(),
@@ -89,7 +90,7 @@ const Dock = props => {
     } : null
 
     const scrollIndcator =  <div id="scInd" className={classes.ScrollIndicator}></div>
- 
+    
     return (
         <Fragment>
             {mobile ? scrollIndcator : null}
