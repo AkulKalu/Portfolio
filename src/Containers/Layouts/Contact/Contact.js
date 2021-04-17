@@ -1,48 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState, useRef } from 'react';
 import classes from './Contact.module.css';
 import ContactForm from '../../../Components/ContactForm/ContactForm';
 import PageTitle from '../../../Components/PageTitle/PageTitle';
 import ContactMessage from '../../../Components/CotactMessage/ContactMessage';
+import {useScrolledTo} from '../../../Hooks/useScrolledTo';
 
+export default function Contact(props) {
+    const [message, setMessage] = useState(1)
+    const scrollAncor = useRef(null);
+    const scrolledTo = useScrolledTo(scrollAncor, 0)
 
-class Contact extends Component {
-    state = {
-        orn: null,
-        message: 1,
+    const messageSwitch = messageId => {
+        setMessage(messageId);
     }
 
-    componentDidMount() {
-        const pullFooter = () => {
-            const orn = document.getElementById('ornament').getBoundingClientRect();
-            if(!this.state.orn && orn.y < window.innerHeight - (window.innerHeight / 10) ) {
-                this.setState({
-                    orn: {
-                        transform: 'translateY(-1.2vh)'
-                    }
-                })
-                window.removeEventListener('scroll', pullFooter)
-            }
-        }
-        window.addEventListener('scroll', pullFooter)
-    }
-    messageSwitch = messageId => {
-        this.setState({
-            message: messageId
-        })
-    }
-   
-    render() {
-      
-        return (
-            <div id="C" className={classes.Wrap}>
-                <PageTitle text="CONTACT ME" />
-                <ContactMessage switch={() => this.messageSwitch(1)} message={this.state.message} />
-                <ContactForm  message={this.messageSwitch} />
-                 <div style={this.state.orn} id="ornament" className={classes.Ornament}></div>
-            </div>
-        );
+    let footerPulled = scrolledTo ? {transform: 'translateY(-1.2vh)'} : null;
 
-    }
+    return (
+        <div id="C" ref={scrollAncor} className={classes.Wrap}>
+            <PageTitle text="CONTACT ME" />
+            <ContactMessage switch={() => messageSwitch(1)} message={message} />
+            <ContactForm  message={messageSwitch} />
+            <div style={footerPulled} id="ornament" className={classes.Ornament}></div>
+        </div>
+    );
 }
 
-export default Contact;
+

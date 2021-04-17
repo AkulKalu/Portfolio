@@ -12,7 +12,7 @@ class Projects extends Component {
                 <PageTitle text="MY PROJECTS" />
                 <Project   project='qrcodes' id="P1" />
                 <Project   reverse   project='sudoku' id="P2" />
-                <Project   project='sorter' id="P3"/><br/>
+                <Project   project='sorter' id="P3"/>
                 <Project   reverse project='weather' id="P4" />
             </div>
         );

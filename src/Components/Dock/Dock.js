@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, Fragment} from 'react';
-import Additional from '../Additional/Additional';
 import classes from './Dock.module.css';
 import Burger from '../Burger/Burger';
 import { useMediaQuery } from 'react-responsive';
