@@ -9,7 +9,7 @@
 @media screen and (min-width: 1025px) {
     .Wrap {
         flex-direction: row;
-        height: 120vh;
+        height: 110vh;
     }
 }
 

@@ -137,10 +137,10 @@ export default function ContactForm(props) {
              });
         }else {
             let formState = {...validationTemplate};
-            formState.name = validateName(isValid.name);
-            formState.email = validateEmail(isValid.email);
-            formState.phone = validatePhone(isValid.phone);
-            formState.message = validateMessage(isValid.message)
+            formState.name = validateName(form.name);
+            formState.email = validateEmail(form.email);
+            formState.phone = validatePhone(form.phone);
+            formState.message = validateMessage(form.message)
             setIsValid(formState)  
         }
     }
@@ -156,7 +156,7 @@ export default function ContactForm(props) {
         transform: 'scaleX(1)'
     }
     const fadeIn = {
-        fadeIn: '1'
+        opacity: '1'
     }
     
     return (

@@ -8,7 +8,7 @@ import {useScrolledTo} from '../../../Hooks/useScrolledTo';
 export default function Contact(props) {
     const [message, setMessage] = useState(1)
     const scrollAncor = useRef(null);
-    const scrolledTo = useScrolledTo(scrollAncor, 0)
+    const scrolledTo = useScrolledTo(scrollAncor, window.innerHeight /10)
 
     const messageSwitch = messageId => {
         setMessage(messageId);

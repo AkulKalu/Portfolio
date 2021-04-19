@@ -19,6 +19,7 @@
         margin: 0 2%;
         transition: background 0.5s, color 0.5s;
 }
+
 .Skill::after {
         content: '';
         position: absolute;
@@ -72,7 +73,7 @@
 
 @keyframes expand {
         100% {
-        transform: translate(var(--eX), var(--eY)); 
+          transform: translate(var(--eX), var(--eY)); 
         }
 }
 

@@ -1,24 +1,13 @@
-import React, { useState, useEffect, useRef, Fragment} from 'react';
+import React, { useState, useEffect, Fragment} from 'react';
 import classes from './Dock.module.css';
 import Burger from '../Burger/Burger';
+import ScrollIndicator from './ScrollIndicator';
 import { useMediaQuery } from 'react-responsive';
 
+let eventCashe = null;
 
-const Dock = props => {
-    const [state, setState] = useState({
-        showDock: false,
-        active: null,
-    })
-    const refState = useRef(state);
-    const mobile = useMediaQuery({query:'(max-width: 1024px)'});
-    refState.current.mobile = mobile
-
-    useEffect(() => {
-        window.addEventListener('scroll', dockToggle);
-    }, []);
-
-   
-    const dockToggle = e => {
+function createDockEvent(state, update, mobile) {
+    return  () => {
         const inView = {
             P1W:  document.getElementById('P1W').getBoundingClientRect(),
             P2W:  document.getElementById('P2W').getBoundingClientRect(),
@@ -29,52 +18,55 @@ const Dock = props => {
             H:  document.getElementById('H').getBoundingClientRect(),
         }
      
-        const scrollIndcator = document.getElementById('scInd');
-        const indicatorWidth =  window.innerWidth / (100 / ( window.scrollY / (document.body.offsetHeight - window.innerHeight) * 100));
-
-        window.requestAnimationFrame( ()=> {
-            scrollIndcator.style.transform = `scaleX(${indicatorWidth})`
-        })
-        if(!refState.current.mobile && inView.P1W.y <= window.innerHeight/3 && !refState.current.showDock ){
-            refState.current = {
+        if(!mobile && inView.P1W.y <= window.innerHeight/3 && !state.showDock ){
+            update({
                 showDock: true,
                 active: 'P1W'
-            }
-            setState({
-                ...refState.current
             })
-
-        }else if(!refState.current.mobile && inView.P1W.y > window.innerHeight/2 && refState.current.showDock ) {
-            refState.current = {
+    
+        }else if(!mobile && inView.P1W.y > window.innerHeight/2 && state.showDock ) {
+            update({
                 showDock: false,
                 active: null
-            }
-            setState({
-                ...refState.current
             })
         }else {
             for (const key in inView) {
                 if( inView[key].bottom > (window.innerHeight/3) &&  
                     inView[key].bottom <= window.innerHeight + (window.innerHeight/3) && 
-                    refState.current.active !== key) {
-                        refState.current = {
-                            ...refState.current,
+                    state.active !== key) {
+                        update({
+                            ...state,
                             active: key
-                        }
-                        setState({
-                            ...refState.current
                         })
                         return;
                 }
             }
         }
     }
-   
-    const onClickScroll = id => document.getElementById(id).scrollIntoView();
+}
+
+export default function Dock(props) {
+    const [state, setState] = useState({
+        showDock: false,
+        active: null,
+    })
+
+    const mobile = useMediaQuery({query:'(max-width: 1024px)'});
+
+    useEffect(() => {
+        window.removeEventListener('scroll',eventCashe);
+        eventCashe =  createDockEvent(state, setState, mobile);
+        window.addEventListener('scroll',eventCashe);
+    }, [state, mobile]);
+
+    const scrollTo = (elementId) => {
+        return () => document.getElementById(elementId).scrollIntoView(true, {behavior : 'smooth'});
+    }
+    
     const burgerClickHandler = () => {
-        refState.current.showDock = ! refState.current.showDock
         setState({
-            ...refState.current
+            ...state,
+            showDock : !state.showDock
         })
     }
 
@@ -84,30 +76,27 @@ const Dock = props => {
         }: null
     } 
     
-    const showDock = state.showDock ? {
+    const dockInOut = state.showDock ? {
         transform: state.mobile ? 'translateX(0)' : 'translateY(0)',
     } : null
 
-    const scrollIndcator =  <div id="scInd" className={classes.ScrollIndicator}></div>
-    
     return (
         <Fragment>
-            {mobile ? scrollIndcator : null}
+            {mobile ? <ScrollIndicator /> : null}
             {mobile ? <Burger click={burgerClickHandler} open={state.showDock}/>: null}
-            <div id="dock" style={showDock} className={classes.Dock}>
+            <div id="dock" style={dockInOut} className={classes.Dock}>
                 <div className={classes.InnerWrap}>
-                    <span onClick={()=> onClickScroll('H')} style={setActive('H')} className={classes.DockBtn}>HOME</span>
-                    <span onClick={()=> onClickScroll('P1W')} style={setActive('P1W')} className={classes.DockBtn}>PROJECT 1</span>
-                    <span onClick={()=> onClickScroll('P2W')} style={setActive('P2W')} className={classes.DockBtn}>PROJECT 2</span>
-                    <span onClick={()=> onClickScroll('P3W')} style={setActive('P3W')} className={classes.DockBtn}>PROJECT 3</span>
-                    <span onClick={()=> onClickScroll('P4W')} style={setActive('P3W')} className={classes.DockBtn}>PROJECT 4</span>
-                    <span onClick={()=> onClickScroll('A')} style={setActive('A')} className={classes.DockBtn}>ABOUT ME</span>
-                    <span onClick={()=> onClickScroll('C')} style={setActive('C')} className={classes.DockBtn}>CONTACT</span>
-                    {mobile ? null : scrollIndcator}
+                    <span onClick={scrollTo('H')} style={setActive('H')} className={classes.DockBtn}>HOME</span>
+                    <span onClick={scrollTo('P1W')} style={setActive('P1W')} className={classes.DockBtn}>PROJECT 1</span>
+                    <span onClick={scrollTo('P2W')} style={setActive('P2W')} className={classes.DockBtn}>PROJECT 2</span>
+                    <span onClick={scrollTo('P3W')} style={setActive('P3W')} className={classes.DockBtn}>PROJECT 3</span>
+                    <span onClick={scrollTo('P4W')} style={setActive('P4W')} className={classes.DockBtn}>PROJECT 4</span>
+                    <span onClick={scrollTo('A')} style={setActive('A')} className={classes.DockBtn}>ABOUT ME</span>
+                    <span onClick={scrollTo('C')} style={setActive('C')} className={classes.DockBtn}>CONTACT</span>
+                    {mobile ? null : <ScrollIndicator />}
                 </div>
             </div>
         </Fragment>
     )
 }
 
-export default Dock;
