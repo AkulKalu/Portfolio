@@ -2,11 +2,14 @@ import React from 'react';
 import classes from './ProjectInfo.module.css';
 import {projectDescription} from '../../Content/Text/text';
 
-
-const ProjectInfo = props => {
+export default function ProjectInfo(props) {
     const data = projectDescription[props.project];
     const title =data.title.toLocaleUpperCase().split('').map( (letter, i) => {
-        return <span className={classes.TextLetter} key={`${props.project}letter${i}`} >{letter}</span>
+        return <span 
+                    className={classes.TextLetter} 
+                    key={`${props.project}letter${i}`} >
+                        {letter}
+                </span>
     } )
    
     return props.inView ? 
@@ -21,9 +24,4 @@ const ProjectInfo = props => {
                     <a  className={classes.Link} href={data.gitHubLink}><span>CODE</span></a>
                 </div>
              </div> : null
-        
-       
-    
 }
-
-export default ProjectInfo;

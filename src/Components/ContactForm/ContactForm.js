@@ -208,9 +208,7 @@ export default function ContactForm(props) {
                 </input>
             </div>
         </form>
-    );
-
-    
+    ); 
 }
 
 

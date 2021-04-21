@@ -9,9 +9,9 @@ function switchSlide(callback, end, startAt = 0 ) {
                callback(next);
                current = next;
                next = current === end ? startAt : current + 1;
-               setTimeout( nextSlide, 5000);  
+               setTimeout( nextSlide, 6000);  
            }
-   setTimeout( nextSlide, 3000);
+   setTimeout( nextSlide, 3500);
 }
 
 export default function Album(props) {
@@ -25,22 +25,26 @@ export default function Album(props) {
     }, [props.inView]) 
 
     let photos = imgLinks.map( (link, i) => {
-        let fadeIn = slide === i  ? {opacity: '1'} : null;
+        let fadeIn = (slide === i && props.inView)  ? {opacity: '1'} : null;
         return (
             <img 
                 key={`${props.project}${i}`} 
-                src={ link} data-pic style={fadeIn} 
+                src={ link} 
+                style={fadeIn} 
                 className={`${classes.Pic} ${props.reverse ? classes.RotateRight : classes.RotateLeft}`} 
                 alt=""
             />
         ) 
     } );
    
-    return  props.inView ? 
-                <div id={props.project} className={`${classes.AlbumWrap} ${classes.AnimEnter}`}>
-                    {photos}
-                </div> 
-            : null
+    return (
+        <div 
+            id={props.project} 
+            className={[classes.AlbumWrap, props.inView && classes.AnimEnter].join(' ')}
+            >
+            {photos}
+        </div> 
+    )          
 }
 
 

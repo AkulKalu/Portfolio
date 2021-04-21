@@ -1,6 +1,7 @@
 footer {
     height: 18vh;
     width: 100vw;
+    font-size: 1.5vh;
     background: linear-gradient(to top, rgb(246, 246, 224),  var(--white));
     position: absolute;
     bottom: 0;
@@ -15,8 +16,8 @@ footer div {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 1.5vh;
 }
+
 footer div span span {
     color: rgb(204, 30, 64);
 }
@@ -25,7 +26,6 @@ footer div span {
 }
 .ReactLogo {
     height: 2vh;
-    vertical-align: sub;
 }
 .GitHubLogo {
     height: 4vh;
@@ -41,6 +41,12 @@ footer div span {
     }
     footer div span {
         margin-top: 0.8rem;
+    }
+}
+
+@media screen and (max-height: 450px) and (orientation : landscape) {
+    footer {
+        font-size: 0.5rem;
     }
 }
 

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import classes from './Skill.module.css';
+
 function randomizeGiggle() {
     let giggX = Math.floor( Math.random() * (81 - 0) + 0 );
     let giggY = 100 - giggX ;
@@ -10,7 +11,8 @@ function randomizeGiggle() {
         y : `${randomNegative(giggY)}%`
     }
 }
-const Skill = props => {
+
+export default function Skill(props) {
     const [giggle, setGiggle] = useState( randomizeGiggle() )
     const classNames = props.show ? [classes.Skill, classes[props.name]].join(' ') : classes.Skill;
      
@@ -24,4 +26,3 @@ const Skill = props => {
     )
 }
 
-export default Skill;

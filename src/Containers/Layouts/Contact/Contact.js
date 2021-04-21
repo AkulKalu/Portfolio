@@ -8,7 +8,7 @@ import {useScrolledTo} from '../../../Hooks/useScrolledTo';
 export default function Contact(props) {
     const [message, setMessage] = useState(1)
     const scrollAncor = useRef(null);
-    const scrolledTo = useScrolledTo(scrollAncor, window.innerHeight /10)
+    const scrolledTo = useScrolledTo(scrollAncor, window.innerHeight /8)
 
     const messageSwitch = messageId => {
         setMessage(messageId);
@@ -19,7 +19,7 @@ export default function Contact(props) {
     return (
         <div id="C" ref={scrollAncor} className={classes.Wrap}>
             <PageTitle text="CONTACT ME" />
-            <ContactMessage switch={() => messageSwitch(1)} message={message} />
+            <ContactMessage display = {scrolledTo} switch={() => messageSwitch(1)} message={message} />
             <ContactForm  message={messageSwitch} />
             <div style={footerPulled} id="ornament" className={classes.Ornament}></div>
         </div>

@@ -77,6 +77,8 @@
         }
 }
 
+
+
 @media screen and (max-width: 768px) {
         .Skill {
                 height: 8.5vh;
@@ -107,6 +109,14 @@
                 z-index: -2;
                 animation: expand 1.5s 0.1s var(--splitCB) forwards;
         }
-
 }
+@media screen and (max-height: 450px) and (orientation : landscape)  {
+        .Skill {
+                font-size: 0.5rem;
+                height: 55px;
+                width: 55px;
+        }
+        
+}
+
 

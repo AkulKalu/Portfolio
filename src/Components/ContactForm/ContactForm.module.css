@@ -1,10 +1,12 @@
 form {
+    --el-width : 35vh;
     display: flex;
     flex-direction: column;
     justify-content: left;
     align-items: left;
     margin-top: 5vh; 
     font-family: bariol-regular;
+    font-size: 1.6vh;
     backdrop-filter: blur(0.8px);
 }
 input[type="text"], input[type="email"] {
@@ -12,7 +14,7 @@ input[type="text"], input[type="email"] {
     outline: none;
     border: none;
     height: 4vh;
-    width: 35vh;
+    width: var( --el-width);
     text-indent: 1rem;
     border-bottom: 2px solid var( --text);
     background:transparent;
@@ -22,7 +24,7 @@ input[type="text"], input[type="email"] {
     transform: scaleX(0);
     transition: transform 1s;
     margin: auto;
-    font-size: 1.6vh;
+    font-size: inherit;
     height: 3.2vh;
 }
 
@@ -37,45 +39,45 @@ input[type="text"], input[type="email"] {
     opacity: 0.8;
     transition: all 0.8s;
     font-family: bariol-regular;
-    font-size: 1.6vh;
+    color: var(--black);
+    font-size: inherit;
 }
 
 .CheckBoxWrap span {
-    font-size: 1.3vh;
     text-indent:1vh;
 }
+
 textarea {
     text-indent: 1rem;
     outline: none;
     border: none;
     background:transparent;
     height: 17vh;
-    width: 35vh;
+    width: var( --el-width);
     color:var( --text);
     border-bottom: 2px solid var( --text);
     transform-origin: center;
     transform: scaleX(0);
     transition: transform 1s;
-    font-size: 1.6vh;
+    font-size: inherit;
 }
 input[type="button"] {
     outline: none;
     cursor: pointer;
     margin: 1.5vh auto;
-    background:transparent;
+    background-color: var(--white);
     color: var( --text);
     border: 2px solid var( --text);
     padding: 1vh;
     width: 30%;
     transition: all 0.6s;
-    font-size: 1.4vh;
+    font-size: inherit;
 }
 
 .CheckBox {
     height: 1.6vh;
     width: 1.6vh;
     border: 1px solid var( --text);
-    border-radius: 4px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -83,21 +85,18 @@ input[type="button"] {
     margin-left: 0.5rem;
 }
 .CheckBox div {
-    height: 80%;
-    width: 80%;
-    background: var( --text);
-    border-radius: 2px;
+    height: 100%;
+    width: 100%;
+    background:  rgb(7, 138, 7);
     transform-origin: center;
-    transition: transform 0.5s;
+    transition: transform 0.2s;
 }
 .BtnValid:hover {
     border-color: rgb(7, 138, 7)!important;
-    background-color: var(--white);
     color:rgb(7, 138, 7)!important;
 }
 .BtnInvalid:hover {
     border-color: crimson!important;
-    background-color: var(--white);
     color: crimson!important;
 }
 .InputState {
@@ -123,27 +122,43 @@ input[type="button"] {
     color: crimson!important;
 }
 @media screen and (min-width: 1025) {
+    form {
+        font-size: 1.3vh;
+    }
     input[type="text"], input[type="email"] {
         margin: auto;
-        font-size: 1.3vh;
         height: 2.5vh;
         padding-bottom: 0.5rem;
     }
-    ::placeholder {
-        font-size: 1.4vh;
-    }
+    
     .InputState {
         font-size: 1.1vh;
         height: 2.5vh;
     }
+
     .CheckBoxWrap span {
         font-size: 1.2vh;
     }
+
     .CheckBox {
         margin-left: 1rem;
     }
-    textarea {
-        font-size: 1.3vh;
+}
+@media screen and (max-height: 450px) and (orientation : landscape) {
+    form {
+        --el-width : 30vw;
+        font-size: 0.6rem;
+    }
+    input[type="text"], input[type="email"] {
+        height: 1rem;
+    }
+    .CheckBox {
+        height: 0.6rem;
+        width: 0.6rem;
+    }
+    input[type="button"] {
+        margin: 0.8rem auto;
+      
     }
 }
 

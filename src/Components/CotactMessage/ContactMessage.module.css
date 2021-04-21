@@ -25,7 +25,7 @@
 }
 .Message{
     width: 80%;
-    font-size: 1.5vh;
+    font-size: clamp(0.8rem, 1.6vh, 2rem ) ;
     text-align: center;
     padding-top: 2vh;
     opacity: 0;
@@ -35,12 +35,16 @@
     animation: messageC 2s forwards;
 }
 .ShowMesage {
-    animation: message 6s forwards;
+    animation: message 5s forwards;
 }
 
 @media screen and (min-width: 1025px) {
     .Message{
         width: unset;
-        font-size: 1.7vh;
+    }
+}
+@media screen and (max-height: 450px) and (orientation : landscape) {
+    .Message{
+        font-size: 0.6rem;
     }
 }

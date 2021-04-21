@@ -2,8 +2,7 @@ import React from 'react';
 import classes from './Footer.module.css';
 
 
-const Footer = props => {
-  
+export default function Footer(props) {
     return (
         <footer>
             <div>
@@ -16,5 +15,3 @@ const Footer = props => {
         </footer>
     )
 }
-
-export default Footer;

@@ -2,10 +2,20 @@ import React, { useState, useEffect, Fragment} from 'react';
 import classes from './Dock.module.css';
 import Burger from '../Burger/Burger';
 import ScrollIndicator from './ScrollIndicator';
-import { useMediaQuery } from 'react-responsive';
+import {useMediaQuery} from 'react-responsive';
+import {scrollTo} from '../../Toolkit/functions'
 
+let styles = {
+    linkActive : {
+        color: 'crimson',
+    },
+    dock : {
+        isShown : (mobile) => {
+            return{transform : mobile ? 'translateX(0)' : 'translateY(0)'}
+        }
+    }
+}
 let eventCashe = null;
-
 function createDockEvent(state, update, mobile) {
     return  () => {
         const inView = {
@@ -50,7 +60,6 @@ export default function Dock(props) {
         showDock: false,
         active: null,
     })
-
     const mobile = useMediaQuery({query:'(max-width: 1024px)'});
 
     useEffect(() => {
@@ -59,40 +68,69 @@ export default function Dock(props) {
         window.addEventListener('scroll',eventCashe);
     }, [state, mobile]);
 
-    const scrollTo = (elementId) => {
-        return () => document.getElementById(elementId).scrollIntoView(true, {behavior : 'smooth'});
-    }
     
-    const burgerClickHandler = () => {
+    const toggleDock = () => {
         setState({
             ...state,
             showDock : !state.showDock
         })
     }
 
-    const setActive = id => {
-        return state.active === id ? {
-            color: 'crimson'
-        }: null
+    const setActiveLink = id => {
+        return state.active === id ? styles.linkActive: null
     } 
-    
-    const dockInOut = state.showDock ? {
-        transform: state.mobile ? 'translateX(0)' : 'translateY(0)',
-    } : null
 
     return (
         <Fragment>
             {mobile ? <ScrollIndicator /> : null}
-            {mobile ? <Burger click={burgerClickHandler} open={state.showDock}/>: null}
-            <div id="dock" style={dockInOut} className={classes.Dock}>
+            {mobile ? <Burger click={toggleDock} open={state.showDock}/>: null}
+            <div 
+                id="dock" 
+                style={state.showDock ? styles.dock.isShown(mobile) : null} 
+                className={classes.Dock}>
                 <div className={classes.InnerWrap}>
-                    <span onClick={scrollTo('H')} style={setActive('H')} className={classes.DockBtn}>HOME</span>
-                    <span onClick={scrollTo('P1W')} style={setActive('P1W')} className={classes.DockBtn}>PROJECT 1</span>
-                    <span onClick={scrollTo('P2W')} style={setActive('P2W')} className={classes.DockBtn}>PROJECT 2</span>
-                    <span onClick={scrollTo('P3W')} style={setActive('P3W')} className={classes.DockBtn}>PROJECT 3</span>
-                    <span onClick={scrollTo('P4W')} style={setActive('P4W')} className={classes.DockBtn}>PROJECT 4</span>
-                    <span onClick={scrollTo('A')} style={setActive('A')} className={classes.DockBtn}>ABOUT ME</span>
-                    <span onClick={scrollTo('C')} style={setActive('C')} className={classes.DockBtn}>CONTACT</span>
+                    <span 
+                        onClick={scrollTo('H').scroll} 
+                        style={setActiveLink('H')}
+                        className={classes.DockBtn}>
+                            HOME
+                    </span>
+                    <span 
+                        onClick={scrollTo('P1W').scroll} 
+                        style={setActiveLink('P1W')} 
+                        className={classes.DockBtn}>
+                            PROJECT 1
+                    </span>
+                    <span 
+                        onClick={scrollTo('P2W').scroll} 
+                        style={setActiveLink('P2W')} 
+                        className={classes.DockBtn}>
+                            PROJECT 2
+                    </span>
+                    <span 
+                        onClick={scrollTo('P3W').scroll} 
+                        style={setActiveLink('P3W')} 
+                        className={classes.DockBtn}>
+                            PROJECT 3
+                    </span>
+                    <span 
+                        onClick={scrollTo('P4W').scroll} 
+                        style={setActiveLink('P4W')} 
+                        className={classes.DockBtn}>
+                            PROJECT 4
+                    </span>
+                    <span 
+                        onClick={scrollTo('A').scroll} 
+                        style={setActiveLink('A')} 
+                        className={classes.DockBtn}>
+                            ABOUT ME
+                    </span>
+                    <span 
+                        onClick={scrollTo('C').scroll} 
+                        style={setActiveLink('C')} 
+                        className={classes.DockBtn}>
+                            CONTACT
+                    </span>
                     {mobile ? null : <ScrollIndicator />}
                 </div>
             </div>

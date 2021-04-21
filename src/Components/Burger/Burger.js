@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Burger.module.css';
 
 
-const Burger = props => {
+export default function Burger(props) {
     const burgerClasses = props.open ? [classes.Burger, classes.Open].join(' ') : classes.Burger;
     const lineClasses = props.open ? [classes.Line, classes.LineOpen].join(' ') : classes.Line;
     return (
@@ -12,4 +12,4 @@ const Burger = props => {
     )
 }
 
-export default Burger;
+;

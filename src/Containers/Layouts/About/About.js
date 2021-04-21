@@ -20,12 +20,11 @@ export default function About(props) {
             <PageTitle text="ABOUT ME" />
             {scrolledTo ? 
                 <div id="aboutMeInfo" className={[classes.Info, classes.ShowInfo].join(' ')}>
-                    <p >While currently i spend most of my time expanding on my web development skills, both frontend and backend, i dont shy from
-                        any chalange. I enjoy solving problems, and as such im constantly learning new things which is what, i belive, my strongest skill, to be able to
-                        learn quickly what is required to finish a product.</p>
+                    <p >Programming has become a huge passion of mine, and a timesink. I focus on web development both front and backend. But that's not necessarily
+                        where i set my boundaries. </p>
                     <br/>
-                    <p >I consider to have only scratched the surface in this field. Money is not currently my primary motive, getting better at this is,
-                    therefore i am constantly expanding my skillset so always contact me for more information about potential endeavours .</p>
+                    <p >I consider to have only scratched the surface in this field. 
+                        Therefore i am constantly expanding my skillset so always <a href="mailto:krunaluka@gmail.com">contact</a> contact me for more information about potential endeavours .</p>
                     <br/>
                     <p >For more general information about me, take a look at my <a href={require('../../../Content/cv.pdf')}> CV</a>.</p>
                 </div>

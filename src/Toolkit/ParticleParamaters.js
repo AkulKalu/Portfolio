@@ -1,4 +1,4 @@
-export const paramsWelcome = {
+export const particleParamaters = {
     "particles":{
         "number":{
             "value":60,
